@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools{
+ 			maven "maven3.9"
+     	}
 
     environment {
         DOCKER_REPO = "phyothetkhaing/hellohtml"
