@@ -16,12 +16,10 @@ pipeline {
         }
 
        stage('Build Jar') {
-    steps {
-        withMaven(maven: 'Maven_3_9') {
-            bat 'mvn clean package -DskipTests'
+            steps {
+                bat 'mvn clean package -DskipTests'
+            }
         }
-    }
-}
 
         stage('Build Docker Image') {
             steps {
