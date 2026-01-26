@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-
     stages {
 
         stage('Checkout Code') {
@@ -13,25 +12,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package -DskipTests'
+                sh 'mvn package -DskipTests'
             }
         }
 
         stage('Run Application') {
             steps {
-                bat 'java -jar target/HelloWorldHTML-0.0.1-SNAPSHOT.jar'
+                sh 'java -jar target/HelloWorldHTML-0.0.1-SNAPSHOT.jar'
             }
         }
     }
